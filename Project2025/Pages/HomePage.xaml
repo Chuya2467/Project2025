@@ -5,7 +5,15 @@
              Title="HomePage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Welcome to Movie Explorer!"
+            HorizontalOptions="Center"
+            FontFamily="ComicSans"
+            FontSize="40"
+            FontAttributes="Bold"
+            TextColor="DarkBlue"  />
+        
+        <Label 
+            Text="Enter your username"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>

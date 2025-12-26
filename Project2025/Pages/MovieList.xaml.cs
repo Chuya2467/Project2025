@@ -6,4 +6,12 @@ public partial class MovieList : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void OnSearchChanged(object sender, TextChangedEventArgs e)
+    {
+        string text = e.NewTextValue;
+
+        if (text == null)
+            text = "";
+    }
 }
