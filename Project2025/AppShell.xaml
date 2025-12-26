@@ -7,8 +7,18 @@
     Title="Project2025">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    Title="HomePage"
+    Route="HomePage"
+    ContentTemplate="{DataTemplate pages:HomePage}" />
+
+    <ShellContent
+    Title="Movies"
+    Route="MovieList"
+    ContentTemplate="{DataTemplate pages:MovieList}" />
+
+    <ShellContent
+    Title="AccountPage"
+    Route="AccountPage"
+    ContentTemplate="{DataTemplate pages:AccountPage}" />
 
 </Shell>
