@@ -22,4 +22,9 @@
     Route="AccountPage"
     ContentTemplate="{DataTemplate pages:AccountPage}" />
 
+    <ShellContent
+    Title="Settings"
+    Route="Settings"
+    ContentTemplate="{DataTemplate pages:Settings}" />
+
 </Shell>
