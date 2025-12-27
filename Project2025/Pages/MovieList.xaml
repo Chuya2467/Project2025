@@ -4,12 +4,40 @@
              x:Class="Project2025.Pages.MovieList"
              Title="MovieList"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-    
-    <Grid Padding="8">
+
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, *" Padding="10">
 
         <SearchBar x:Name="SearchBarControl"
                Grid.Row="0"
                Placeholder="Search by title"
                TextChanged="OnSearchChanged"/>
+
+        <CollectionView Grid.Row="1"
+                    ItemsSource="{Binding Movies}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10" Padding="10">
+                        <VerticalStackLayout Spacing="4">
+
+                            <Label Text="{Binding emoji}"
+                               FontSize="30"/>
+
+                            <Label Text="{Binding title}"
+                               FontAttributes="Bold"
+                               FontSize="18"/>
+
+                            <Label Text="{Binding year}"/>
+
+                            <Label Text="{Binding director}"/>
+
+                            <Label Text="{Binding rating,
+                               StringFormat='IMDb: {0:F1}'}"/>
+
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
     </Grid>
 </ContentPage>
