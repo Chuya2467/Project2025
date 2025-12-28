@@ -1,42 +1,96 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project2025.Pages.MovieList"
-             Title="MovieList"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Project2025.Pages.MovieList"
+    Title="Movies"
+    BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, *" Padding="10">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,*"
+          Padding="8">
 
+        <!-- Search -->
         <SearchBar x:Name="SearchBarControl"
-               Grid.Row="0"
-               Placeholder="Search by title"
-               TextChanged="OnSearchChanged"/>
+                   Grid.Row="0"
+                   Placeholder="Search by title"
+                   TextChanged="OnSearchChanged"/>
 
-        <CollectionView Grid.Row="1"
-                    ItemsSource="{Binding Movies}">
+        <!-- Sort / Filter buttons -->
+        <ScrollView Grid.Row="1"
+                    Orientation="Horizontal"
+                    Padding="4">
+            <HorizontalStackLayout Spacing="8">
+
+                <Button x:Name="YearSortButton"
+                        Text="Year UP"
+                        WidthRequest="140"
+                        Clicked="OnSortByYear"/>
+
+                <Button x:Name="RatingSortButton"
+                        Text="Rating UP"
+                        WidthRequest="140"
+                        Clicked="OnSortByRating"/>
+
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <!-- Movies list -->
+        <CollectionView x:Name="MovieListView"
+                        Grid.Row="5"
+                        SelectionMode="None">
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="10" Padding="10">
-                        <VerticalStackLayout Spacing="4">
 
+                    <Frame Margin="6"
+                           Padding="10"
+                           CornerRadius="8"
+                           HasShadow="False">
+
+                        <Grid ColumnDefinitions="50,*">
+
+                            <!-- Emoji -->
                             <Label Text="{Binding emoji}"
-                               FontSize="30"/>
+                                   FontSize="30"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center">
+                                <Label.GestureRecognizers>
+                                    <!--<TapGestureRecognizer Tapped="OnMovieTap"/>-->
+                                </Label.GestureRecognizers>
+                            </Label>
 
-                            <Label Text="{Binding title}"
-                               FontAttributes="Bold"
-                               FontSize="18"/>
+                            <!-- Movie info -->
+                            <VerticalStackLayout Grid.Column="1"
+                                                 Spacing="2">
 
-                            <Label Text="{Binding year}"/>
+                                <Label Text="{Binding title}"
+                                       FontSize="16"
+                                       FontAttributes="Bold">
+                                    <Label.GestureRecognizers>
+                                        <!--<TapGestureRecognizer Tapped="OnMovieTap"/>-->
+                                    </Label.GestureRecognizers>
+                                </Label>
 
-                            <Label Text="{Binding director}"/>
+                                <Label Text="{Binding year,
+                                       StringFormat='Year: {0}'}"
+                                       FontSize="12"/>
 
-                            <Label Text="{Binding rating,
-                               StringFormat='IMDb: {0:F1}'}"/>
+                                <Label Text="{Binding director}"
+                                       FontSize="12"/>
 
-                        </VerticalStackLayout>
+                                <Label Text="{Binding rating,
+                                       StringFormat='IMDb: {0:F1}'}"
+                                       FontSize="12"/>
+
+                            </VerticalStackLayout>
+
+                        </Grid>
+
                     </Frame>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+
         </CollectionView>
 
     </Grid>
