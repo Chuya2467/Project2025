@@ -10,7 +10,7 @@ namespace Project2025.Classes
         public int year { get; set; }
 
       
-        public List<string> genres { get; set; }
+        public List<string> genre { get; set; }
 
       
         public string director { get; set; }

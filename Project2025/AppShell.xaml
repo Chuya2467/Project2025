@@ -27,9 +27,4 @@
     Route="Settings"
     ContentTemplate="{DataTemplate pages:Settings}" />
 
-    <ShellContent
-    Title="MovieDetails"
-    Route="MovieDetails"
-    ContentTemplate="{DataTemplate pages:MovieDetails}" />
-
 </Shell>

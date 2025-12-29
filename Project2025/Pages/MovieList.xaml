@@ -6,7 +6,7 @@
     Title="Movies"
     BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,*"
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,*"
           Padding="8">
 
         <!-- Search -->
@@ -15,7 +15,7 @@
                    Placeholder="Search by title"
                    TextChanged="OnSearchChanged"/>
 
-        <!-- Sort / Filter buttons -->
+        <!-- Sort / filter buttons -->
         <ScrollView Grid.Row="1"
                     Orientation="Horizontal"
                     Padding="4">
@@ -31,17 +31,48 @@
                         WidthRequest="140"
                         Clicked="OnSortByRating"/>
 
+                <Button Text="Genres"
+                        WidthRequest="140"
+                        Clicked="OnToggleGenrePanel"/>
+
+                <Button Text="Directors"
+                        WidthRequest="140"
+                        Clicked="OnToggleDirectorPanel"/>
+
             </HorizontalStackLayout>
+        </ScrollView>
+
+        <!-- Genre filter panel -->
+        <ScrollView Grid.Row="2"
+                    x:Name="GenrePanel"
+                    Orientation="Horizontal"
+                    IsVisible="False"
+                    HeightRequest="72"
+                    BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <HorizontalStackLayout x:Name="GenreCheckboxContainer"
+                                   Spacing="12"
+                                   VerticalOptions="Center"/>
+        </ScrollView>
+
+        <!-- Director filter panel -->
+        <ScrollView Grid.Row="3"
+                    x:Name="DirectorPanel"
+                    Orientation="Horizontal"
+                    IsVisible="False"
+                    HeightRequest="72"
+                    BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <HorizontalStackLayout x:Name="DirectorCheckboxContainer"
+                                   Spacing="12"
+                                   VerticalOptions="Center"/>
         </ScrollView>
 
         <!-- Movies list -->
         <CollectionView x:Name="MovieListView"
-                        Grid.Row="5"
+                        Grid.Row="4"
                         SelectionMode="None">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-
                     <Frame Margin="6"
                            Padding="10"
                            CornerRadius="8"
@@ -49,17 +80,15 @@
 
                         <Grid ColumnDefinitions="50,*">
 
-                            <!-- Emoji -->
                             <Label Text="{Binding emoji}"
                                    FontSize="30"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Center">
                                 <Label.GestureRecognizers>
-                                    <!--<TapGestureRecognizer Tapped="OnMovieTap"/>-->
+                                    <TapGestureRecognizer Tapped="OnMovieTap"/>
                                 </Label.GestureRecognizers>
                             </Label>
 
-                            <!-- Movie info -->
                             <VerticalStackLayout Grid.Column="1"
                                                  Spacing="2">
 
@@ -67,7 +96,7 @@
                                        FontSize="16"
                                        FontAttributes="Bold">
                                     <Label.GestureRecognizers>
-                                        <!--<TapGestureRecognizer Tapped="OnMovieTap"/>-->
+                                        <TapGestureRecognizer Tapped="OnMovieTap"/>
                                     </Label.GestureRecognizers>
                                 </Label>
 
@@ -83,11 +112,8 @@
                                        FontSize="12"/>
 
                             </VerticalStackLayout>
-
                         </Grid>
-
                     </Frame>
-
                 </DataTemplate>
             </CollectionView.ItemTemplate>
 
