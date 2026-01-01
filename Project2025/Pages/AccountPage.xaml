@@ -3,11 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project2025.Pages.AccountPage"
              Title="AccountPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to User Profile!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             BackgroundColor="{DynamicResource PageBackgroundColor}" 
+             Padding="25">
+    
+    <ScrollView Padding="0,0,15,0">
+        <VerticalStackLayout Spacing="20">
+
+            <Label x:Name="WelcomeLabel"
+                   Text=""
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+            <Button Text="Logout"
+                    BackgroundColor="#E74C3C"
+                    TextColor="White"
+                    FontSize="14"
+                    Padding="10,5"
+                    CornerRadius="12"
+                    HorizontalOptions="Center"
+                    WidthRequest="120"
+                    Clicked="OnLogout"
+                    Margin="0,0,0,20"/>
+
+            <Label Text="Favourite Movies"
+                   FontSize="20"
+                   FontAttributes="Bold"/>
+
+            <Label x:Name="EmptyLabel"
+                   Text="You didn't add favourite movies yet"
+                   TextColor="Gray"
+                   IsVisible="False"/>
+
+            <CollectionView x:Name="FavListView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="50,*,Auto" Padding="5">
+
+                            <Label Text="{Binding emoji}" FontSize="30"/>
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding title}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"/>
+
+                            <Button Grid.Column="2"
+                                    Text="Remove"
+                                    BindingContext="{Binding .}"
+                                    BackgroundColor="#FF9900"
+                                    TextColor="Black"
+                                    Padding="6,2"
+                                    CornerRadius="8"
+                                    Clicked="OnRemoveFavourite"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="History"
+                   FontSize="20"
+                   FontAttributes="Bold"/>
+
+            <CollectionView x:Name="HistoryListView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="{Binding Emoji}" FontSize="24"/>
+                            <Label Text="{Binding Title}" FontAttributes="Bold"/>
+                            <Label Text="{Binding Action}" FontSize="14" TextColor="Gray"/>
+                            <Label Text="{Binding Timestamp}" FontSize="12" TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

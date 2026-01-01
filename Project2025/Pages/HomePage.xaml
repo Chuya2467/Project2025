@@ -4,18 +4,41 @@
              x:Class="Project2025.Pages.HomePage"
              Title="HomePage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to Movie Explorer!"
+    
+    <VerticalStackLayout Spacing="30" VerticalOptions="Center">
+
+        <Label Text="Welcome"
+           HorizontalOptions="Center"
+           FontFamily="Helvetica"
+           FontSize="36"
+           FontAttributes="Bold"
+           TextColor="{DynamicResource PrimaryTextColor}" />
+
+        <Label Text="Enter your username to continue"
+           HorizontalOptions="Center"
+           FontSize="16"
+           TextColor="{DynamicResource PrimaryTextColor}" />
+
+        <Entry x:Name="NameEntry"
+           Placeholder="Username"
+           HorizontalOptions="Center"
+           WidthRequest="220"
+           FontSize="18"
+           BackgroundColor="#FFFFFF"
+           TextColor="Black"
+           PlaceholderColor="Gray"
+           Margin="0,10"/>
+
+        <Button Text="Login"
+            Clicked="OnLogin"
+            WidthRequest="140"
+            HeightRequest="42"
             HorizontalOptions="Center"
-            FontFamily="ComicSans"
-            FontSize="40"
+            BackgroundColor="#FF8800"
+            TextColor="Black"
+            CornerRadius="16"
             FontAttributes="Bold"
-            TextColor="DarkBlue"  />
-        
-        <Label 
-            Text="Enter your username"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            />
+
     </VerticalStackLayout>
 </ContentPage>

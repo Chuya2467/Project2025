@@ -8,25 +8,21 @@
     
     <VerticalStackLayout Spacing="22">
 
-        <!-- emoji -->
         <Label x:Name="EmojiLabel"
            FontSize="60"
            HorizontalOptions="Center"/>
 
-        <!-- title -->
         <Label x:Name="TitleLabel"
            FontSize="28"
            FontAttributes="Bold"
            HorizontalOptions="Center"/>
 
-        <!-- info -->
         <Label x:Name="YearLabel"   FontSize="20"/>
         <Label x:Name="GenreLabel"  FontSize="18"/>
         <Label x:Name="RatingLabel" FontSize="18"/>
 
-        <!-- fav button -->
-        <!--<Button x:Name="FavButton"
+        <Button x:Name="FavButton"
             Margin="0,20,0,0"
-            Clicked="OnToggleFavourite"/>-->
+            Clicked="OnToggleFavourite"/>
     </VerticalStackLayout>
 </ContentPage>

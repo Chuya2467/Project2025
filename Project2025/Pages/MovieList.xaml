@@ -9,13 +9,11 @@
     <Grid RowDefinitions="Auto,Auto,Auto,Auto,*"
           Padding="8">
 
-        <!-- Search -->
         <SearchBar x:Name="SearchBarControl"
                    Grid.Row="0"
                    Placeholder="Search by title"
                    TextChanged="OnSearchChanged"/>
 
-        <!-- Sort / filter buttons -->
         <ScrollView Grid.Row="1"
                     Orientation="Horizontal"
                     Padding="4">
@@ -42,7 +40,6 @@
             </HorizontalStackLayout>
         </ScrollView>
 
-        <!-- Genre filter panel -->
         <ScrollView Grid.Row="2"
                     x:Name="GenrePanel"
                     Orientation="Horizontal"
@@ -54,7 +51,6 @@
                                    VerticalOptions="Center"/>
         </ScrollView>
 
-        <!-- Director filter panel -->
         <ScrollView Grid.Row="3"
                     x:Name="DirectorPanel"
                     Orientation="Horizontal"
@@ -66,7 +62,6 @@
                                    VerticalOptions="Center"/>
         </ScrollView>
 
-        <!-- Movies list -->
         <CollectionView x:Name="MovieListView"
                         Grid.Row="4"
                         SelectionMode="None">
@@ -116,8 +111,6 @@
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-
         </CollectionView>
-
     </Grid>
 </ContentPage>

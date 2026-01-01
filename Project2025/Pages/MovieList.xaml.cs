@@ -11,8 +11,8 @@ public partial class MovieList : ContentPage
     private readonly List<string> selectedGenres = new();
     private readonly List<string> selectedDirectors = new();
 
-    int yearSort = 0;     // 1 asc, -1 desc
-    int ratingSort = 0;  // 1 asc, -1 desc
+    int yearSort = 0;     
+    int ratingSort = 0;  
     string lastSortPressed = "";
 
     public MovieList()
@@ -40,13 +40,11 @@ public partial class MovieList : ContentPage
         CreateDirectorCheckboxesFromData();
     }
 
-    // SEARCH
     private void OnSearchChanged(object sender, TextChangedEventArgs e)
     {
         ApplyFiltersAndSort(e.NewTextValue ?? "");
     }
 
-    // SORTING
     private void OnSortByYear(object sender, EventArgs e)
     {
         yearSort = yearSort == 1 ? -1 : 1;
@@ -63,7 +61,6 @@ public partial class MovieList : ContentPage
         ApplyFiltersAndSort(SearchBarControl.Text);
     }
 
-    // FILTER PANELS
     private void OnToggleGenrePanel(object sender, EventArgs e)
     {
         GenrePanel.IsVisible = !GenrePanel.IsVisible;
@@ -74,7 +71,6 @@ public partial class MovieList : ContentPage
         DirectorPanel.IsVisible = !DirectorPanel.IsVisible;
     }
 
-    // GENRES
     private void CreateGenreCheckboxesFromData()
     {
         GenreCheckboxContainer.Children.Clear();
@@ -112,7 +108,6 @@ public partial class MovieList : ContentPage
         ApplyFiltersAndSort(SearchBarControl.Text);
     }
 
-    // DIRECTORS
     private void CreateDirectorCheckboxesFromData()
     {
         DirectorCheckboxContainer.Children.Clear();
@@ -157,7 +152,6 @@ public partial class MovieList : ContentPage
         };
     }
 
-    // FILTER + SORT CORE
     private void ApplyFiltersAndSort(string search)
     {
         search = (search ?? "").Trim().ToLower();
