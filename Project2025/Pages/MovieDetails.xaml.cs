@@ -20,6 +20,7 @@ public partial class MovieDetails : ContentPage
         UpdateFavButton();
     }
 
+    //record if any movie was viewed
     private async void RecordViewed()
     {
         await HistoryData.AddAsync(new HistoryEntry

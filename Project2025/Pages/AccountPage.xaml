@@ -17,7 +17,7 @@
                    Margin="0,0,0,10"/>
 
             <Button Text="Logout"
-                    BackgroundColor="#E74C3C"
+                    BackgroundColor="red"
                     TextColor="White"
                     FontSize="14"
                     Padding="10,5"
@@ -51,7 +51,7 @@
                             <Button Grid.Column="2"
                                     Text="Remove"
                                     BindingContext="{Binding .}"
-                                    BackgroundColor="#FF9900"
+                                    BackgroundColor="#b269c1"
                                     TextColor="Black"
                                     Padding="6,2"
                                     CornerRadius="8"

@@ -8,6 +8,7 @@ namespace Project2025.Pages;
             InitializeComponent();
         }
 
+        //loading user data
         protected override async void OnAppearing()
         {
             if (string.IsNullOrWhiteSpace(UserData.CurrentUserName))
@@ -43,7 +44,7 @@ namespace Project2025.Pages;
             }
             HistoryListView.ItemsSource = null;
             HistoryListView.ItemsSource = SortHistoryByNewest(HistoryData.Entries.ToList());
-    }
+        }
 
         List<HistoryEntry> SortHistoryByNewest(List<HistoryEntry> list)
         {

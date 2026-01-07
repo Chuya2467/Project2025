@@ -4,6 +4,8 @@ namespace Project2025.Classes
 {
     public class Movie
     {
+        //file with variables for movie entrys
+
         public string title { get; set; }
         public int year { get; set; }
         public List<string> genre { get; set; }

@@ -6,6 +6,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
+//saves json file from website provided
+
 namespace Project2025.Classes
 {
     public class MovieDownloading

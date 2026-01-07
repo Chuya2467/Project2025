@@ -5,6 +5,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
+//this file handles history data
+
 namespace Project2025.Classes
 {
     public static class HistoryData
@@ -20,6 +22,7 @@ namespace Project2025.Classes
             return UserData.HistoryPathFor(UserData.CurrentUserName);
         }
 
+        //works with json file
         public static async Task LoadAsync()
         {
             Entries.Clear();
@@ -39,6 +42,7 @@ namespace Project2025.Classes
             }
         }
 
+        //saves data to a file
         public static async Task SaveAsync()
         {
             string filePath = GetCurrentFilePath();

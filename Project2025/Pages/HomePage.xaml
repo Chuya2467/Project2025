@@ -34,7 +34,7 @@
             WidthRequest="140"
             HeightRequest="42"
             HorizontalOptions="Center"
-            BackgroundColor="#FF8800"
+            BackgroundColor="#b269c1"
             TextColor="Black"
             CornerRadius="16"
             FontAttributes="Bold"

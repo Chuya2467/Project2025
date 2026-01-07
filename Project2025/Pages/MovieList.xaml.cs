@@ -21,6 +21,7 @@ public partial class MovieList : ContentPage
         MovieListView.ItemsSource = shownMovies;
     }
 
+    //showing movies list
     protected override async void OnAppearing()
     {
         base.OnAppearing();
@@ -40,11 +41,13 @@ public partial class MovieList : ContentPage
         CreateDirectorCheckboxesFromData();
     }
 
+    //search
     private void OnSearchChanged(object sender, TextChangedEventArgs e)
     {
         ApplyFiltersAndSort(e.NewTextValue ?? "");
     }
 
+    //sort by year
     private void OnSortByYear(object sender, EventArgs e)
     {
         yearSort = yearSort == 1 ? -1 : 1;
@@ -53,6 +56,7 @@ public partial class MovieList : ContentPage
         ApplyFiltersAndSort(SearchBarControl.Text);
     }
 
+    //sort by rating
     private void OnSortByRating(object sender, EventArgs e)
     {
         ratingSort = ratingSort == 1 ? -1 : 1;
@@ -71,6 +75,7 @@ public partial class MovieList : ContentPage
         DirectorPanel.IsVisible = !DirectorPanel.IsVisible;
     }
 
+    //showing checkbox with genres
     private void CreateGenreCheckboxesFromData()
     {
         GenreCheckboxContainer.Children.Clear();
@@ -96,6 +101,7 @@ public partial class MovieList : ContentPage
             GenreCheckboxContainer.Children.Add(CreateCheckboxRow(g, OnGenreChecked));
     }
 
+    //if any genre was selected
     private void OnGenreChecked(object sender, CheckedChangedEventArgs e)
     {
         var genre = (string)((CheckBox)sender).BindingContext;
@@ -108,6 +114,7 @@ public partial class MovieList : ContentPage
         ApplyFiltersAndSort(SearchBarControl.Text);
     }
 
+    //showing checkbox with directors
     private void CreateDirectorCheckboxesFromData()
     {
         DirectorCheckboxContainer.Children.Clear();
@@ -122,6 +129,7 @@ public partial class MovieList : ContentPage
             DirectorCheckboxContainer.Children.Add(CreateCheckboxRow(d, OnDirectorChecked));
     }
 
+    //if any director was selected
     private void OnDirectorChecked(object sender, CheckedChangedEventArgs e)
     {
         var director = (string)((CheckBox)sender).BindingContext;
@@ -152,6 +160,7 @@ public partial class MovieList : ContentPage
         };
     }
 
+    //filters and sorting
     private void ApplyFiltersAndSort(string search)
     {
         search = (search ?? "").Trim().ToLower();
@@ -186,6 +195,7 @@ public partial class MovieList : ContentPage
         RefreshShownMovies(result);
     }
 
+    //refreshing
     private void RefreshShownMovies(IEnumerable<Movie> movies)
     {
         shownMovies.Clear();

@@ -14,6 +14,7 @@ public partial class Settings : ContentPage
             ThemeSwitch.IsToggled = SettingsStore.DarkThemeEnabled;
         }
 
+        //changing theme (light/dark) 
         private void OnThemeToggled(object sender, ToggledEventArgs e)
         {
             bool isDark = e.Value;

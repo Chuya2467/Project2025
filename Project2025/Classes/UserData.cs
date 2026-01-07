@@ -10,6 +10,7 @@ namespace Project2025.Classes
 
         private static List<string> users = new List<string>();
 
+        //if user exists - opens userFile; Otherwise - creates new file for a user
         public static void LoadUsers()
         {
             try
@@ -37,6 +38,7 @@ namespace Project2025.Classes
             }
         }
 
+        //creates file for new users
         private static void SaveUsers()
         {
             string json = JsonSerializer.Serialize(users);

@@ -6,6 +6,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
+//this file handles favourites data
+
 namespace Project2025.Classes
 {
     public static class FavouriteData
@@ -13,6 +15,7 @@ namespace Project2025.Classes
 
         public static ObservableCollection<Movie> Favourites { get; } = new();
 
+        //updates favourites list
         public static async Task LoadAsync()
         {
             Favourites.Clear();
@@ -33,6 +36,7 @@ namespace Project2025.Classes
                     Favourites.Add(m);
         }
 
+        //saves favourites to the json file
         public static async Task SaveAsync()
         {
             var user = UserData.CurrentUserName;
@@ -44,6 +48,7 @@ namespace Project2025.Classes
             await File.WriteAllTextAsync(path, json);
         }
 
+        //adds movies to a favourites list 
         public static async Task<bool> ToggleAsync(Movie m)
         {
             if (m == null)
@@ -72,6 +77,7 @@ namespace Project2025.Classes
             return true;
         }
 
+        //removes movie from the favourites list
         public static async Task RemoveAsync(Movie movie)
         {
             if (movie == null)

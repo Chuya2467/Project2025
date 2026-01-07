@@ -42,6 +42,7 @@ namespace Project2025.Classes
                 Movies.Add(movie);
         }
 
+        //filter
         public void FilterMovies(string searchText)
         {
             Movies.Clear();
